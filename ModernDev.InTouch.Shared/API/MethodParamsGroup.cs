@@ -33,7 +33,7 @@ namespace ModernDev.InTouch
 #if WINDOWS_UWP81 || PORTABLE_LIB
             var properties = GetType().GetTypeInfo().DeclaredProperties.Where(propInfo => propInfo.CanRead);
 #else
-            var properties = GetType().GetProperties(BindingFlags.Public).Where(prop => prop.CanRead);
+            var properties = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(prop => prop.CanRead);
 #endif
 
             foreach (var prop in properties)
